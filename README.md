@@ -1,6 +1,7 @@
 <h1 align="center">
-    <img src="./img/viacep.png">
+    <img src="https://github.com/geisonbruno1/Via-CEP/assets/110945121/203caf09-3384-43f7-9a5b-8be709899bbc">
 </h1>
+
 
 <h1><a href="https://viacep.com.br/">Veja o site da API viaCEP</a></h1>
 
