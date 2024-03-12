@@ -37,9 +37,9 @@ export function init() {
   state.btnSave.addEventListener("click", handleBtnSaveClick);
 }
 
-  function handleInputNumberKeyup(event) {
-    state.address.number = event.target.value;
-  }
+function handleInputNumberKeyup(event) {
+  state.address.number = event.target.value;
+}
 
 async function handleInputCepChange(event) {
   const cep = event.target.value;
@@ -61,7 +61,19 @@ async function handleInputCepChange(event) {
 
 async function handleBtnSaveClick(event) {
   event.preventDefault();
+
+  const errors = addressService.getErrors(state.address);
+
+  const keys = Object.keys(errors);
+
+if(keys.length > 0) {
+  keys.forEach(key => {
+    setFormError(keys, errors[key]); 
+  });
+} else {
   listController.addCard(state.address);
+  clearForm();
+  }
 }
 
 function handleInputNumberChange(event) {
@@ -85,6 +97,8 @@ function clearForm() {
 
   setFormError("cep", "");
   setFormError("number", "");
+
+  state.address = new Address();
 
   state.inputCep.focus();
 }
